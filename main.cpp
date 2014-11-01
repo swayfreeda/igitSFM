@@ -1,3 +1,12 @@
+//========================================================================//
+//Description: a software for image based modeling,the input are some images, //              and the output is a textured model.
+// Author: Sui Wei
+// Time: 8/29/2014
+// Company: Institute of Automation, Chinese Academy of Science
+
+
+
+
 #include <mainwindow.h>
 #include "mainwindow.h"
 #include <QApplication>
