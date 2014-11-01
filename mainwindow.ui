@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>769</width>
+    <height>487</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IGIT Modelling</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QListWidget" name="imageListWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="viewMode">
+         <enum>QListView::IconMode</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="GLViewer" name="viewer">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>281</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="outputTextEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>180</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::WinPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>769</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File&amp;</string>
+    </property>
+    <addaction name="actionLoad_Images"/>
+    <addaction name="actionSave_Points_As_PLY"/>
+    <addaction name="actionLoad_Points"/>
+    <addaction name="actionLoad_Mesh"/>
+    <addaction name="actionSave_Mesh"/>
+   </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <addaction name="actionSFM"/>
+    <addaction name="actionCMVS"/>
+    <addaction name="actionAll_in_One"/>
+    <addaction name="actionPoisson_Surface"/>
+    <addaction name="actionSelect_Points"/>
+    <addaction name="actionTexture_Mapping"/>
+   </widget>
+   <widget class="QMenu" name="menuSet">
+    <property name="title">
+     <string>Set</string>
+    </property>
+    <addaction name="actionParams_Setting"/>
+    <addaction name="actionPath"/>
+   </widget>
+   <widget class="QMenu" name="menuDisplay">
+    <property name="title">
+     <string>Display</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionSparse_Points"/>
+    <addaction name="actionDense_Points"/>
+    <addaction name="actionVetices"/>
+    <addaction name="actionWire_Frame"/>
+    <addaction name="actionFlat"/>
+    <addaction name="actionFlatLine"/>
+    <addaction name="actionTexure"/>
+    <addaction name="actionCameras"/>
+    <addaction name="actionPlay_Path"/>
+   </widget>
+   <widget class="QMenu" name="menuDebug">
+    <property name="title">
+     <string>Debug</string>
+    </property>
+    <addaction name="actionBase_Plane"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTool"/>
+   <addaction name="menuSet"/>
+   <addaction name="menuDisplay"/>
+   <addaction name="menuDebug"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLoad_Images">
+   <property name="icon">
+    <iconset resource="../icons/icons.qrc">
+     <normaloff>:/fileOpen.png</normaloff>:/fileOpen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Load Images</string>
+   </property>
+  </action>
+  <action name="actionSFM">
+   <property name="text">
+    <string>SFM</string>
+   </property>
+  </action>
+  <action name="actionCMVS">
+   <property name="text">
+    <string>CMVS</string>
+   </property>
+  </action>
+  <action name="actionAll_in_One">
+   <property name="text">
+    <string>All-In-One</string>
+   </property>
+  </action>
+  <action name="actionParams_Setting">
+   <property name="text">
+    <string>Params Setting</string>
+   </property>
+  </action>
+  <action name="actionSparse_Points">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Sparse Points</string>
+   </property>
+  </action>
+  <action name="actionDense_Points">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Dense Points</string>
+   </property>
+  </action>
+  <action name="actionSave_Points_As_PLY">
+   <property name="text">
+    <string>Save Points As PLY</string>
+   </property>
+  </action>
+  <action name="actionVetices">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Vetices</string>
+   </property>
+  </action>
+  <action name="actionWire_Frame">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Wire Frame</string>
+   </property>
+  </action>
+  <action name="actionFlat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Flat</string>
+   </property>
+  </action>
+  <action name="actionFlatLine">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>FlatLine</string>
+   </property>
+  </action>
+  <action name="actionTexure">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Texure</string>
+   </property>
+  </action>
+  <action name="actionPoisson_Surface">
+   <property name="text">
+    <string>Poisson Surface</string>
+   </property>
+  </action>
+  <action name="actionPath">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Path</string>
+   </property>
+  </action>
+  <action name="actionPlay_Path">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Play Path</string>
+   </property>
+  </action>
+  <action name="actionLoad_Points">
+   <property name="text">
+    <string>Load Points</string>
+   </property>
+  </action>
+  <action name="actionSelect_Points">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Select Points</string>
+   </property>
+  </action>
+  <action name="actionTexture_Mapping">
+   <property name="text">
+    <string>Texture Mapping</string>
+   </property>
+  </action>
+  <action name="actionCameras">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Cameras</string>
+   </property>
+  </action>
+  <action name="actionBase_Plane">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Base Plane</string>
+   </property>
+  </action>
+  <action name="actionLoad_Mesh">
+   <property name="text">
+    <string>Load Mesh</string>
+   </property>
+  </action>
+  <action name="actionSave_Mesh">
+   <property name="text">
+    <string>Save Mesh</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GLViewer</class>
+   <extends>QFrame</extends>
+   <header location="global">igit_glviewer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
